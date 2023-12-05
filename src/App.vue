@@ -1,12 +1,14 @@
 <script setup>
 import Sidebar from './components/Sidebar.vue'
 import Calender from './components/Calender.vue';
+import AddEvent from './components/AddEvent.vue';
 </script>
 
 <template class="">
   <div class="flex">
     <Sidebar class=" hidden xl:block w-1/5" />
     <Calender class="w-full" />
+    <AddEvent/>
   </div>
 </template>
 
