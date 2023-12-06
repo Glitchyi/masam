@@ -1,9 +1,15 @@
 <template>
     <div class="flex justify-center items-center">
-        <div class="grid grid-rows-5 grid-cols-7 gap-3 container px-60 justify-center ">
-            <div v-for="(day, weekIndex) in months" :key="weekIndex" class="flex md:text-[80px]  lg:text-[40px]  bg-[#f3f3f3] justify-center relative border-[1px] h-full rounded-md w-full  px-10 hover:shadow-md transition-shadow delay-0 duration-150 items-center aspect-square">
 
-                <div v-if="day.split(':')[0] == currentday" class="rounded-full absolute z-0 w-[40px] md:w-[120px] aspect-square bg-red-200 ">
+        
+
+
+        <div class="grid grid-rows-5 grid-cols-7 gap-3 container px-60 justify-center ">
+            <div v-for="(day, weekIndex) in months" :key="weekIndex"
+                class="flex md:text-[80px]  lg:text-[40px]  bg-[#f3f3f3] justify-center relative border-[1px] h-full rounded-md w-full  px-10 hover:shadow-md transition-shadow delay-0 duration-150 items-center aspect-square">
+
+                <div v-if="day.split(':')[0] == currentday"
+                    class="rounded-full absolute z-0 w-[40px] md:w-[120px] aspect-square bg-red-200 ">
                 </div>
                 <p v-if="day.split(':')[1] == currentMonth" class="font-bold z-10">
                     {{ day.split(':')[0] }}
@@ -11,7 +17,7 @@
                 <p v-else class="font-bold z-10 text-gray-300">
                     {{ day.split(':')[0] }}
                 </p>
-                <div v-if="false" class="top-2 right-2 absolute w-5 h-5 animate-pulse rounded-full bg-red-500 z-20"></div>
+                <div v-if="true" class="top-2 right-2 absolute w-5 h-5 animate-pulse rounded-full bg-red-500 z-20"></div>
 
 
             </div>
@@ -28,8 +34,8 @@ export default {
             months: m,
         };
     },
-
 };
+
 
 var month = new Date().getMonth();
 // var month = 10;
@@ -63,7 +69,7 @@ const getDates = (month, year) => {
     }
 
     iteratedDate = endOfMonth.clone()
-    while (finalsOfPrevMonth.length + currentMonth.length + startsOfNextMonth.length <35) {
+    while (finalsOfPrevMonth.length + currentMonth.length + startsOfNextMonth.length < 35) {
         iteratedDate.add(1, "day")
         startsOfNextMonth.push(iteratedDate.format("DD:MM"))
     }
