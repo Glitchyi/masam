@@ -1,9 +1,6 @@
 <template>
     <div class="flex justify-center items-center">
 
-        
-
-
         <div class="grid grid-rows-5 grid-cols-7 gap-3 container px-60 justify-center ">
             <div v-for="(day, weekIndex) in months" :key="weekIndex"
                 class="flex md:text-[80px]  lg:text-[40px]  bg-[#f3f3f3] justify-center relative border-[1px] h-full rounded-md w-full  px-10 hover:shadow-md transition-shadow delay-0 duration-150 items-center aspect-square">
@@ -17,9 +14,9 @@
                 <p v-else class="font-bold z-10 text-gray-300">
                     {{ day.split(':')[0] }}
                 </p>
-                <div v-if="true" class="top-2 right-2 absolute w-5 h-5 animate-pulse rounded-full bg-red-500 z-20"></div>
+                <div v-if="day.split(':')[0] == currentday" class="top-2 right-2 absolute w-5 h-5 animate-pulse rounded-full bg-red-500 z-20"></div>
 
-
+                
             </div>
 
         </div>
@@ -34,6 +31,9 @@ export default {
             months: m,
         };
     },
+    mounted() {
+        
+    },
 };
 
 
@@ -41,6 +41,11 @@ var month = new Date().getMonth();
 // var month = 10;
 var year = new Date().getFullYear();
 import moment from 'moment';
+
+
+
+
+
 const getDates = (month, year) => {
     const startOfMonth = moment()
         .month(month - 1)
